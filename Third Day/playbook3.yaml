@@ -1,0 +1,10 @@
+---
+- name: Install Utilisties.
+  become: yes 
+  hosts: all 
+  tasks:
+    - name: Install Git,ntp,vim
+      package:
+        name: "{{ list_of_packages }}"
+        state: present
+

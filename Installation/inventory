@@ -1,0 +1,13 @@
+[servers]
+rrr
+rps
+
+
+[rrr]
+10.0.0.101
+10.0.0.151
+44.201.104.64 ansible_user=ubuntu
+
+
+[rps]
+35.175.204.233 ansible_user=ubuntu

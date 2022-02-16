@@ -1,0 +1,20 @@
+---
+- name: Install Apache2
+  become: yes 
+  hosts: all 
+  tasks:
+    - name: Reload Apache.
+      service:
+        name: apache2 
+        state: reloaded 
+      when: task_result
+    - name: Installing Apache on Ubuntu.
+      apt: 
+        name: apache2
+        update_cache: yes 
+        state: present
+    - name: Adding customised content.
+      copy:
+        src: index.html
+        dest: /var/www/html/
+      register: task_result 

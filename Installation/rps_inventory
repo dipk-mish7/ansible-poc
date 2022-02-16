@@ -1,0 +1,19 @@
+[rps]
+35.175.204.233 ansible_user=ubuntu
+
+
+
+[webservers]
+webserver1
+
+[databaseservers]
+sqlserver1
+
+[web_database_servers]
+webserver1
+sqlserver1
+
+
+ansible-playbook playbook1.yml -i final_inventory.yml
+
+

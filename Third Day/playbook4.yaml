@@ -1,0 +1,49 @@
+---
+- name: Install Utilisties.
+  become: yes 
+  hosts: all
+  vars:
+    user_name: [ "Ninja","sensei","Bravo" ]
+    list_of_packages: [ "git","vim","ntp" ]
+    group_name: [ "Opstree", "Devops" ]
+
+  tasks:
+    - name: Installing Apache on Ubuntu.
+      apt: 
+        name: apache2
+        update_cache: yes 
+        state: present
+    - name: Adding customised content.
+      template:
+        src: index.html.j2
+        dest: /var/www/html/index.html
+      notify: Reload Apache
+    - name: Install Git,ntp,vim
+      package: 
+        name: "{{ item }}"
+        state: present 
+      loop: "{{ list_of_packages }}"
+    - name: Creating Group.
+      group:
+        name: "{{ item }}"
+        state: present 
+      loop: "{{ group_name }}"
+    - name: Creating User Ninja and Sensei.
+      user:
+        name: "{{ item }}"
+        group: Opstree
+      when: ( item == "Ninja" ) or ( item == "sensei")
+      loop: "{{ user_name }}"
+    - name: Creating anyother user.
+      user:
+        name: "{{ item }}"
+        group: Devops
+      when: ( item != "Ninja" ) or ( item != "sensei")
+      loop: "{{ user_name }}"
+
+  handlers:
+    - name: Reload Apache
+      service:
+        name: apache2 
+        state: reloaded
+    
