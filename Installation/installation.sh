@@ -31,13 +31,3 @@ esac
 
 
 
-You9:44 PM
-curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
-   14  ls
-   15  python get-pip.py
-   16  sudo pip3 install 'ansible==2.5.1'
-   17  ansible --version
-   18  sudo pip3 install 'ansible==2.6.1'
-https://medium.com/clarusway/installing-and-upgrading-ansible-with-pip-91219dcbf4c3
-
-
