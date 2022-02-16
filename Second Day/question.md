@@ -1,6 +1,6 @@
-# Hi, I'm Deepak! I am doing Ninja Training with Opstree Solutions.👋
+# Hi, I'm Deepak! .👋
 
-[@ninja_deepak](https://gitlab.com/ninja_deepak)
+
 
 ## Module Practice:
 
